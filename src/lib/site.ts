@@ -1,6 +1,10 @@
 export const site = {
   name: 'Paint and Seek Wiki',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined) ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ||
+    'http://localhost:3000',
   description:
     'Master Paint and Seek on Roblox with active codes, camouflage tips, hider and seeker strategies, map routes, perks, controls, updates, and beginner guides.',
   image: '/images/hero.webp',

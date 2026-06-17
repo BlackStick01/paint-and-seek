@@ -1,6 +1,8 @@
 node_modules/
 .next/
 .next-paint-seek/
+.vercel/
+.vercel-local/
 out/
 *.log
 .env*
