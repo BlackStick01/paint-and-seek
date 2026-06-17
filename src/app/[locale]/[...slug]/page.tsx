@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
 import { ArrowRight, CalendarDays, Home } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CONTENT_TYPES, NAVIGATION_CONFIG, localizeHref, normalizeContentType } from '@/config/navigation';
 import { routing } from '@/i18n/routing';
 import { getAllContent, getAllContentPaths, getContent } from '@/lib/content';
+import { translate } from '@/lib/messages';
 import { absoluteUrl, localePath, site } from '@/lib/site';
 
 type RouteProps = {
@@ -36,18 +36,19 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
   if (!contentType) return {};
 
   if (slug.length === 1) {
-    const t = await getTranslations({ locale, namespace: `lists.${contentType}` });
     const path = `/${contentType}`;
+    const title = translate(locale, `lists.${contentType}.title`);
+    const description = translate(locale, `lists.${contentType}.description`);
     return {
-      title: t('title'),
-      description: t('description'),
+      title,
+      description,
       alternates: {
         canonical: localePath(locale, path),
         languages: Object.fromEntries(routing.locales.map((item) => [item, localePath(item, path)]))
       },
       openGraph: {
-        title: t('title'),
-        description: t('description'),
+        title,
+        description,
         url: localePath(locale, path),
         images: [{ url: absoluteUrl('/images/hero.webp'), width: 1200, height: 630 }]
       }
@@ -149,15 +150,14 @@ export default async function SlugPage({ params }: RouteProps) {
 }
 
 async function NavigationPage({ locale, contentType }: { locale: string; contentType: NonNullable<ReturnType<typeof normalizeContentType>> }) {
-  const t = await getTranslations({ locale });
   const items = await getAllContent(contentType, locale);
   const navItem = NAVIGATION_CONFIG.find((item) => item.key === contentType);
   const Icon = navItem?.icon || Home;
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t(`lists.${contentType}.title`),
-    description: t(`lists.${contentType}.description`),
+    name: translate(locale, `lists.${contentType}.title`),
+    description: translate(locale, `lists.${contentType}.description`),
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -172,9 +172,9 @@ async function NavigationPage({ locale, contentType }: { locale: string; content
       <section className="py-4">
         <Breadcrumbs locale={locale} contentType={contentType} />
         <header className="wiki-card p-6 sm:p-10">
-          <p className="text-sm font-black uppercase text-primary">Roblox Paint and Seek {t(`nav.${contentType}`).toLowerCase()}</p>
-          <h1 className="mt-3 text-4xl font-black leading-tight tracking-normal sm:text-6xl">{t(`lists.${contentType}.title`)}</h1>
-          <p className="mt-4 max-w-4xl text-lg leading-8 text-muted-foreground">{t(`lists.${contentType}.intro`)}</p>
+          <p className="text-sm font-black uppercase text-primary">Roblox Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()}</p>
+          <h1 className="mt-3 text-4xl font-black leading-tight tracking-normal sm:text-6xl">{translate(locale, `lists.${contentType}.title`)}</h1>
+          <p className="mt-4 max-w-4xl text-lg leading-8 text-muted-foreground">{translate(locale, `lists.${contentType}.intro`)}</p>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold text-muted-foreground">
             <span>{items.length} current pages</span>
             <span>Web checked: Jun 16, 2026</span>
@@ -185,7 +185,7 @@ async function NavigationPage({ locale, contentType }: { locale: string; content
         <section className="mt-6">
           <h2 className="mb-4 flex items-center gap-2 text-3xl font-black">
             <Icon className="size-7 text-primary" aria-hidden="true" />
-            All current Paint and Seek {t(`nav.${contentType}`).toLowerCase()} pages
+            All current Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()} pages
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
             {items.map((item) => (
@@ -194,7 +194,7 @@ async function NavigationPage({ locale, contentType }: { locale: string; content
                 <h3 className="text-2xl font-black">{item.metadata.title}</h3>
                 <p className="text-sm leading-6 text-muted-foreground">{item.metadata.description}</p>
                 <span className="inline-flex items-center gap-1 text-sm font-black text-primary">
-                  {t('shared.readMore')} <ArrowRight className="size-4" aria-hidden="true" />
+                  {translate(locale, 'shared.readMore')} <ArrowRight className="size-4" aria-hidden="true" />
                 </span>
               </Link>
             ))}

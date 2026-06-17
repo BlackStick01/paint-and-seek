@@ -4,6 +4,8 @@ import { routing } from '@/i18n/routing';
 import { getAllContentPaths } from '@/lib/content';
 import { absoluteUrl, localePath } from '@/lib/site';
 
+export const dynamic = 'force-static';
+
 const staticPages = ['/', '/about', '/privacy-policy', '/terms-of-service', '/copyright'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

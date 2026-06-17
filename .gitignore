@@ -3,6 +3,7 @@ node_modules/
 .next-paint-seek/
 .vercel/
 .vercel-local/
+.npm-cache/
 out/
 *.log
 .env*

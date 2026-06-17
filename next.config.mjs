@@ -8,9 +8,11 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   pageExtensions: ['ts', 'tsx', 'mdx'],
   outputFileTracingRoot: process.cwd(),
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

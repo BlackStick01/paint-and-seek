@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import { HomePageClient } from './HomePageClient';
 import { JsonLd } from '@/components/JsonLd';
+import { translate } from '@/lib/messages';
 import { absoluteUrl, localePath, site } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home.meta' });
+  const title = translate(locale, 'home.meta.title');
+  const description = translate(locale, 'home.meta.description');
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
     alternates: {
       canonical: localePath(locale, '/')
     },
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title,
+      description,
       url: localePath(locale, '/'),
       images: [{ url: absoluteUrl('/images/hero.webp'), width: 1200, height: 630 }]
     }
