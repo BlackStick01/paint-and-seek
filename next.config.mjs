@@ -8,7 +8,6 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: '.next-paint-seek',
   pageExtensions: ['ts', 'tsx', 'mdx'],
   outputFileTracingRoot: process.cwd(),
   images: {
