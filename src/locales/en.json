@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "title": "Paint and Seek Wiki — Codes, Maps, Perks & Strategies",
+    "description": "Master Paint and Seek on Roblox with active codes, camouflage tips, hider and seeker strategies, map routes, perks, controls, updates, and beginner guides.",
+    "keywords": "Paint and Seek, Roblox, codes, wiki, maps, camouflage, hider, seeker, perks, controls"
+  },
+  "nav": {
+    "brand": "Paint and Seek Codes and Guides",
+    "codes": "Codes",
+    "maps": "Maps",
+    "guides": "Guides",
+    "items": "Items",
+    "perks": "Perks",
+    "controls": "Controls",
+    "updates": "Updates",
+    "community": "Community"
+  },
+  "shared": {
+    "home": "Home",
+    "readMore": "Read more",
+    "openTopic": "Open topic",
+    "wikiNavigation": "Wiki Navigation",
+    "activeCodes": "Active Codes",
+    "viewAllCodes": "View all codes",
+    "updated": "Updated",
+    "overview": "overview",
+    "language": "Language",
+    "loadingLanguage": "Loading language...",
+    "browseGuides": "Browse Paint and Seek Guides",
+    "playOnRoblox": "Play Paint and Seek on Roblox"
+  },
+  "home": {
+    "meta": {
+      "title": "Paint and Seek Wiki — Codes, Maps & Camouflage Guide",
+      "description": "Master Paint and Seek on Roblox with active codes, camouflage tips, hider and seeker strategies, map routes, perks, controls, updates, and beginner guides."
+    },
+    "hero": {
+      "eyebrow": "Roblox Paint and Seek wiki",
+      "title": "Paint and Seek Wiki",
+      "description": "A practical home base for Paint and Seek players on Roblox. Start with codes, the beginner route, maps, perks, controls, items, updates, and safe community links without bouncing through unrelated legacy pages.",
+      "stats": ["Updated Jun 14, 2026", "10K+ Players Online", "2.3M+ Visits", "10.8K+ Favorites", "13 Players per Server"],
+      "primaryCta": "Start Here",
+      "secondaryCta": "Claim Codes",
+      "tertiaryCta": "Learn the Maps",
+      "videoLabel": "Featured Gameplay"
+    },
+    "snapshot": {
+      "eyebrow": "Updated",
+      "title": "Live update snapshot",
+      "items": [
+        {
+          "label": "System",
+          "date": "Jun 16",
+          "title": "Official Roblox page still surfaces UPDATE1 and extra server codes",
+          "description": "The safest current update check is still the official Roblox description, because it continues to mention UPDATE1 and hints that more codes are live in the server."
+        },
+        {
+          "label": "Fix",
+          "date": "Jun 13",
+          "title": "Server restart compensation is still the clearest hotfix signal",
+          "description": "Compensation and restart chatter are not random noise right now. Public update tracking still points back to the server restart note as the cleanest recent fix marker."
+        },
+        {
+          "label": "Launch",
+          "date": "May 15",
+          "title": "Launch identity still matters when reading every newer guide",
+          "description": "The launch package still defines the baseline: four maps, paint camouflage, and a round loop built around hiding well or clearing rooms methodically."
+        }
+      ]
+    },
+    "start": {
+      "eyebrow": "Start here",
+      "title": "New player route",
+      "cards": {
+        "beginner": {
+          "number": "1",
+          "title": "Learn the round loop",
+          "description": "Start with the Beginner Guide so hider-versus-seeker flow, prep time, and the first big mistakes stop feeling random."
+        },
+        "hider": {
+          "number": "2",
+          "title": "Fix your paint first",
+          "description": "Open Hider guidance next because stronger camouflage helps on every map before you memorize any one hiding spot."
+        },
+        "seeker": {
+          "number": "3",
+          "title": "Pick your weaker role",
+          "description": "If you keep timing out as seeker, open seeker routes and scanning patterns so your clears stop feeling improvised."
+        },
+        "codes": {
+          "number": "4",
+          "title": "Claim codes before shopping",
+          "description": "Redeem current rewards before Coins, skins, or perk rolls start eating your early-game balance."
+        }
+      }
+    },
+    "hubs": {
+      "eyebrow": "Primary navigation",
+      "title": "Main guide hubs",
+      "description": "These cards mirror the live top-level navigation, so homepage visitors can jump straight into the current Paint and Seek sections instead of wandering through legacy leftovers.",
+      "cards": {
+        "codes": "Newest active codes, redeem order, and quick failure checks before you spend anything.",
+        "maps": "House, Grocery Store, Bank, and Arcade routes for hiders and seekers once the round loop feels clear.",
+        "guides": "Beginner Guide, paint discipline, hider habits, and seeker discipline in one focused learning hub.",
+        "items": "How to earn Coins, read shop categories, compare cosmetics, and spend without wasting early progress.",
+        "perks": "How perks or traits work and how to choose between hider value, seeker value, or skins.",
+        "controls": "PC, mobile, console, and settings help for cleaner movement, paint flow, and button confidence.",
+        "updates": "Launch notes, hotfix context, live status checks, and the clearest current changes gathered in one place.",
+        "community": "Discord checks, official links, Trello status, and the quickest way to verify outside resources safely."
+      }
+    },
+    "aboutGame": {
+      "title": "What is Paint and Seek?",
+      "paragraphs": [
+        "Paint and Seek is a Roblox camouflage hide-and-seek game where hiders paint their avatars into walls, props, and color families while seekers clear the map by reading movement, silhouette mistakes, and bad positioning.",
+        "Each role rewards a different playstyle. Hiders study surfaces and escape routes, while Seekers clear rooms systematically, identify unnatural shapes, and revisit high-probability hiding zones before the timer expires."
+      ],
+      "stats": [
+        { "label": "Developer", "value": "Ikitai Studios" },
+        { "label": "Platform", "value": "Roblox" },
+        { "label": "Genre", "value": "Party & Casual" },
+        { "label": "Players Online", "value": "10,088" },
+        { "label": "Visits", "value": "2.3M+" },
+        { "label": "Favorites", "value": "10,842" },
+        { "label": "Server Size", "value": "13" }
+      ],
+      "cta": "Explore All Guides"
+    },
+    "finalCta": {
+      "title": "Keep Paint and Seek simple: learn, claim, route, verify",
+      "description": "Use this homepage as a router. Start with the guide that matches your current problem, then come back when the next problem changes.",
+      "primary": "Browse Paint and Seek Guides",
+      "secondary": "Play Paint and Seek on Roblox"
+    }
+  },
+  "lists": {
+    "codes": {
+      "title": "Paint and Seek Codes",
+      "description": "Newest active codes, redeem order, and quick failure checks before you spend anything.",
+      "intro": "Use this hub first so your real Coin balance is clear before skins, shop categories, or perk rolls start competing for attention."
+    },
+    "maps": {
+      "title": "Paint and Seek Maps",
+      "description": "Map routes, hiding spots, and seeker scan patterns for Paint and Seek.",
+      "intro": "Each map page explains why the same camouflage idea behaves differently across rooms, aisles, open floors, and visual clutter."
+    },
+    "guides": {
+      "title": "Paint and Seek Guides Hub",
+      "description": "Beginner, paint tool, hider, and seeker strategy guides for Paint and Seek.",
+      "intro": "Use this hub after codes and maps if you want the real improvement layer: a clear beginner path, paint discipline, and role-specific guides."
+    },
+    "items": {
+      "title": "Paint and Seek Items",
+      "description": "Coins, shop categories, skins, titles, and spending priorities.",
+      "intro": "Build a smarter reward path before you buy for style."
+    },
+    "perks": {
+      "title": "Paint and Seek Perks",
+      "description": "Perks, traits, rolls, hider value, seeker value, and skin tradeoffs.",
+      "intro": "Open this hub when the next question is traits, rolling, or whether perks beat skins."
+    },
+    "controls": {
+      "title": "Paint and Seek Controls",
+      "description": "PC, mobile, console, and UI button help for Paint and Seek.",
+      "intro": "These pages focus on movement rhythm, camera control, UI routing, and what to do when a button feels wrong."
+    },
+    "updates": {
+      "title": "Paint and Seek Updates",
+      "description": "Launch notes, hotfix context, code impact, roadmap caution, and status checks.",
+      "intro": "Track change notes and trusted links without mixing update chatter, code chatter, and community chatter together."
+    },
+    "community": {
+      "title": "Paint and Seek Community",
+      "description": "Official links, Discord guidance, group checks, and safe resource verification.",
+      "intro": "Use these pages when trust is the real problem and you want the safest anchors before clicking anything else."
+    }
+  },
+  "footer": {
+    "aboutTitle": "Paint and Seek Wiki",
+    "about": "Fan-made Paint and Seek wiki focused first on codes, redeem help, maps, camouflage, hider tips, seeker routes, coins, skins, and safe official links.",
+    "description": "Free paint-camouflage hide-and-seek on Roblox. Play as a Hider or Seeker, master blending, learn scan routes, and collect code rewards.",
+    "playGame": "Play Paint and Seek on Roblox",
+    "officialDiscord": "Official Discord",
+    "officialYoutube": "Featured Gameplay",
+    "communityTool": "Ikitai Studios Roblox Community",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "copyright": "Copyright 2026 paintandseekwiki.wiki - Fan site for informational and guide purposes only."
+  },
+  "sidebarCodes": [
+    { "code": "omg10kccu", "reward": "Free Coins" },
+    { "code": "UPDATE1", "reward": "Free Coins" },
+    { "code": "SorryForDelay", "reward": "Currency" },
+    { "code": "ThanksForSupport", "reward": "Currency" }
+  ]
+}

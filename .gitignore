@@ -1,0 +1,7 @@
+node_modules/
+.next/
+.next-paint-seek/
+out/
+*.log
+.env*
+!.env.example

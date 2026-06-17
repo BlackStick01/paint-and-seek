@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "brand": "Códigos e guias de Paint and Seek",
+    "codes": "Códigos",
+    "maps": "Mapas",
+    "guides": "Guias",
+    "items": "Itens",
+    "perks": "Vantagens",
+    "controls": "Controles",
+    "updates": "Atualizações",
+    "community": "Comunidade"
+  },
+  "shared": {
+    "home": "Início",
+    "language": "Idioma",
+    "readMore": "Ler mais"
+  }
+}

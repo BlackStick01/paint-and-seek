@@ -1,0 +1,13 @@
+{
+  "name": "Paint and Seek Wiki",
+  "short_name": "Paint Seek",
+  "description": "Paint and Seek Roblox codes, maps, perks, controls and strategies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071016",
+  "theme_color": "#20d5f2",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

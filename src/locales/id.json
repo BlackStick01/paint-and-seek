@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "brand": "Kode dan Panduan Paint and Seek",
+    "codes": "Kode",
+    "maps": "Peta",
+    "guides": "Panduan",
+    "items": "Item",
+    "perks": "Perk",
+    "controls": "Kontrol",
+    "updates": "Pembaruan",
+    "community": "Komunitas"
+  },
+  "shared": {
+    "home": "Beranda",
+    "language": "Bahasa",
+    "readMore": "Baca lagi"
+  }
+}
