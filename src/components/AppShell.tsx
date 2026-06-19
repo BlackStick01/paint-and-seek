@@ -93,7 +93,7 @@ export function AppShell({ children }: AppShellProps) {
         <nav className="site-nav" aria-label="Primary navigation" onMouseLeave={() => setOpenMenu(null)}>
           <Link href={localizeHref(locale, '/')} className="brand" aria-label="Paint and Seek Wiki home">
             <span className="brand-mark" aria-hidden="true">
-              <img src="/android-chrome-192x192.png" alt="" width="36" height="36" />
+              <img src="/images/hero.webp" alt="" width="36" height="36" />
             </span>
             <span className="brand-text">
               <strong>Paint and Seek</strong>
