@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, CalendarDays, Home } from 'lucide-react';
+import { ArrowRight, CalendarDays, CheckCircle2, Home, PlayCircle } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CONTENT_TYPES, NAVIGATION_CONFIG, localizeHref, normalizeContentType } from '@/config/navigation';
 import { routing } from '@/i18n/routing';
@@ -97,6 +97,7 @@ export default async function SlugPage({ params }: RouteProps) {
   if (!content) notFound();
 
   const MDXContent = content.MDXContent;
+  const relatedItems = (await getAllContent(contentType, locale)).filter((item) => item.slug !== content.slug).slice(0, 5);
   const articlePath = `/${contentType}/${content.slug}`;
   const articleUrl = absoluteUrl(localePath(locale, articlePath));
   const articleJsonLd = {
@@ -128,21 +129,60 @@ export default async function SlugPage({ params }: RouteProps) {
   return (
     <>
       <JsonLd data={[articleJsonLd, breadcrumbJsonLd]} />
-      <article className="mx-auto max-w-5xl py-4">
-        <Breadcrumbs locale={locale} contentType={contentType} current={content.metadata.title} />
-        <header className="wiki-card p-6 sm:p-10">
-          <p className="text-sm font-black uppercase text-primary">{contentType}</p>
-          <h1 className="mt-3 text-4xl font-black leading-tight tracking-normal sm:text-6xl">{content.metadata.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">{content.metadata.description}</p>
-          {content.metadata.date ? (
-            <p className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-muted-foreground">
-              <CalendarDays className="size-4 text-primary" aria-hidden="true" />
-              {content.metadata.date}
-            </p>
-          ) : null}
+      <article className="article-page">
+        <header className="article-hero">
+          <div className="article-layout">
+            <Breadcrumbs locale={locale} contentType={contentType} current={content.metadata.title} />
+            <div className="article-title-block">
+              <p className="home-template-kicker">Roblox Paint and Seek {contentType}</p>
+              <h1>{content.metadata.title}</h1>
+              <p>{content.metadata.description}</p>
+              <div className="article-meta">
+                {content.metadata.date ? (
+                  <span>
+                    <CalendarDays className="mr-1 inline size-4" aria-hidden="true" />
+                    {content.metadata.date}
+                  </span>
+                ) : null}
+                <span>{contentType}</span>
+                <span>Paint and Seek Roblox</span>
+              </div>
+            </div>
+          </div>
         </header>
-        <div className="prose-panel mt-5">
-          <MDXContent />
+
+        <div className="article-content-layout">
+          <div className="article-content">
+            <section className="quick-guide">
+              <h2>Quick guide</h2>
+              <ol>
+                <li>Read the page once for the main idea before memorizing individual spots.</li>
+                <li>Apply one change in a live round: paint quality, movement discipline, or route order.</li>
+                <li>Return to the related pages when the next failure mode becomes obvious.</li>
+              </ol>
+            </section>
+            <div className="article-panel" id="main-content">
+              <MDXContent />
+            </div>
+          </div>
+          <aside className="article-sidebar" aria-label="Article sidebar">
+            <section className="article-sidebar-card">
+              <p className="home-sidebar-kicker">On this page</p>
+              <h2>Guide sections</h2>
+              <a href="#quick-guide">Quick guide <ArrowRight className="size-4" aria-hidden="true" /></a>
+              <a href="#main-content">Main guide <ArrowRight className="size-4" aria-hidden="true" /></a>
+              <a href="#related-pages">Related pages <ArrowRight className="size-4" aria-hidden="true" /></a>
+            </section>
+            <section className="article-sidebar-card" id="related-pages">
+              <p className="home-sidebar-kicker">Related</p>
+              <h2>More {contentType}</h2>
+              {relatedItems.map((item) => (
+                <Link key={item.slug} href={localizeHref(locale, `/${contentType}/${item.slug}`)}>
+                  {item.metadata.title} <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              ))}
+            </section>
+          </aside>
         </div>
       </article>
     </>
@@ -169,37 +209,91 @@ async function NavigationPage({ locale, contentType }: { locale: string; content
   return (
     <>
       <JsonLd data={itemListJsonLd} />
-      <section className="py-4">
-        <Breadcrumbs locale={locale} contentType={contentType} />
-        <header className="wiki-card p-6 sm:p-10">
-          <p className="text-sm font-black uppercase text-primary">Roblox Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()}</p>
-          <h1 className="mt-3 text-4xl font-black leading-tight tracking-normal sm:text-6xl">{translate(locale, `lists.${contentType}.title`)}</h1>
-          <p className="mt-4 max-w-4xl text-lg leading-8 text-muted-foreground">{translate(locale, `lists.${contentType}.intro`)}</p>
-          <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold text-muted-foreground">
-            <span>{items.length} current pages</span>
-            <span>Web checked: Jun 16, 2026</span>
-            <span>Paint and Seek Roblox</span>
+      <section className="section-index-page">
+        <header className="section-index-hero">
+          <div className="section-index-layout">
+            <Breadcrumbs locale={locale} contentType={contentType} />
+            <div className="section-index-title-block">
+              <p className="home-template-kicker">Roblox Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()}</p>
+              <h1>{translate(locale, `lists.${contentType}.title`)}</h1>
+              <p>{translate(locale, `lists.${contentType}.intro`)}</p>
+              <div className="section-index-stats">
+                <div>
+                  <strong>{items.length}</strong>
+                  <span>current pages</span>
+                </div>
+                <div>
+                  <strong>Jun 16</strong>
+                  <span>web checked</span>
+                </div>
+                <div>
+                  <strong>Roblox</strong>
+                  <span>Paint and Seek</span>
+                </div>
+              </div>
+            </div>
           </div>
         </header>
 
-        <section className="mt-6">
-          <h2 className="mb-4 flex items-center gap-2 text-3xl font-black">
-            <Icon className="size-7 text-primary" aria-hidden="true" />
-            All current Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()} pages
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {items.map((item) => (
-              <Link key={item.slug} href={localizeHref(locale, `/${contentType}/${item.slug}`)} className="wiki-card wiki-link-card grid gap-3 p-5">
-                <span className="text-xs font-black uppercase text-primary">{item.metadata.category}</span>
-                <h3 className="text-2xl font-black">{item.metadata.title}</h3>
-                <p className="text-sm leading-6 text-muted-foreground">{item.metadata.description}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-black text-primary">
-                  {translate(locale, 'shared.readMore')} <ArrowRight className="size-4" aria-hidden="true" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <div className="section-index-layout section-index-content">
+          <section className="quick-guide">
+            <h2>Fast learning plan</h2>
+            <ul>
+              <li>Begin with the page that matches the problem you feel in-game right now.</li>
+              <li>Use written guides as the main teaching layer and the video as a visual companion.</li>
+              <li>Diagnose the system that failed: basics, camouflage, hider discipline, seeker route order, controls, or spending.</li>
+            </ul>
+          </section>
+
+          <section className="quick-guide">
+            <h2 className="flex items-center gap-2">
+              <PlayCircle className="size-5" aria-hidden="true" />
+              A suitable YouTube watch for this hub
+            </h2>
+            <p>A recent general Paint and Seek gameplay upload from June 2026. Current YouTube coverage is still more raw gameplay than structured tutorial content, but it is useful for seeing role flow and round pacing in motion.</p>
+            <a className="button" href="https://www.youtube.com/watch?v=Ozf7uTyBsp4" target="_blank" rel="nofollow noopener noreferrer">
+              Watch gameplay guide <ArrowRight className="size-4" aria-hidden="true" />
+            </a>
+          </section>
+
+          <section>
+            <div className="home-section-heading">
+              <p className="home-template-kicker">Guide list</p>
+              <h2 className="flex items-center gap-2">
+                <Icon className="size-7" aria-hidden="true" />
+                All current Paint and Seek {translate(locale, `nav.${contentType}`).toLowerCase()} pages
+              </h2>
+              <p>Each page is written as a working teaching page, not a thin placeholder. Open the one that matches your current bottleneck.</p>
+            </div>
+            <div className="article-grid">
+              {items.map((item, index) => (
+                <Link key={item.slug} href={localizeHref(locale, `/${contentType}/${item.slug}`)} className="article-card">
+                  <span>{index === 0 ? 'Start here' : item.metadata.category}</span>
+                  <h3>{item.metadata.title}</h3>
+                  <p>{item.metadata.description}</p>
+                  <em>{translate(locale, 'shared.readMore')} →</em>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="quick-guide">
+            <h2 className="flex items-center gap-2">
+              <CheckCircle2 className="size-5" aria-hidden="true" />
+              Which page solves which problem
+            </h2>
+            <div className="article-grid">
+              {items.slice(0, 4).map((item) => (
+                <Link key={item.slug} href={localizeHref(locale, `/${contentType}/${item.slug}`)} className="article-card">
+                  <span>Compare</span>
+                  <h3>{item.metadata.title}</h3>
+                  <p>{item.metadata.description}</p>
+                  <em>Open topic →</em>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </div>
       </section>
     </>
   );
