@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const title = 'Paint and Seek Wiki — Codes, Maps, Perks & Strategies';
   const description = site.description;
-  const image = absoluteUrl('/images/hero.webp');
+  const image = absoluteUrl(site.image);
 
   return {
     metadataBase: new URL(site.url),
@@ -40,9 +40,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      url: locale === 'en' ? '/' : `/${locale}`,
+      url: absoluteUrl(locale === 'en' ? '/' : `/${locale}`),
       siteName: site.name,
-      images: [{ url: image, width: 1200, height: 630 }],
+      images: [{ url: image, width: 1200, height: 630, alt: 'Paint and Seek Wiki codes, maps and camouflage guide' }],
       locale,
       type: 'website'
     },
@@ -54,11 +54,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     icons: {
       icon: [
-        { url: absoluteUrl('/favicon.ico'), sizes: 'any' },
-        { url: absoluteUrl('/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
-        { url: absoluteUrl('/favicon-32x32.png'), sizes: '32x32', type: 'image/png' }
+        { url: '/favicon.ico' },
+        { url: '/icon.png', type: 'image/png', sizes: '512x512' }
       ],
-      apple: [{ url: absoluteUrl('/apple-touch-icon.png'), sizes: '180x180', type: 'image/png' }]
+      shortcut: ['/favicon.ico'],
+      apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }]
     },
     manifest: '/manifest.json'
   };
@@ -75,8 +75,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     '@type': 'Organization',
     name: site.name,
     url: absoluteUrl(locale === 'en' ? '/' : `/${locale}`),
-    logo: absoluteUrl('/android-chrome-512x512.png'),
-    image: absoluteUrl('/images/hero.webp')
+    logo: absoluteUrl('/icon.png'),
+    image: absoluteUrl(site.image)
   };
 
   return (

@@ -14,8 +14,8 @@ export function EnglishShell({ children }: { children: ReactNode }) {
     '@type': 'Organization',
     name: site.name,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/android-chrome-512x512.png'),
-    image: absoluteUrl('/images/hero.webp')
+    logo: absoluteUrl('/icon.png'),
+    image: absoluteUrl(site.image)
   };
 
   return (

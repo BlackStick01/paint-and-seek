@@ -50,8 +50,21 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
       openGraph: {
         title,
         description,
-        url: localePath(locale, path),
-        images: [{ url: absoluteUrl('/images/hero.webp'), width: 1200, height: 630 }]
+        url: absoluteUrl(localePath(locale, path)),
+        images: [
+          {
+            url: absoluteUrl(site.image),
+            width: 1200,
+            height: 630,
+            alt: 'Paint and Seek Wiki codes, maps and camouflage guide'
+          }
+        ]
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [absoluteUrl(site.image)]
       }
     };
   }
@@ -70,17 +83,24 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
     openGraph: {
       title: content.metadata.title,
       description: content.metadata.description,
-      url: localePath(locale, path),
+      url: absoluteUrl(localePath(locale, path)),
       type: 'article',
       publishedTime: content.metadata.date,
       modifiedTime: content.metadata.lastModified,
-      images: [{ url: absoluteUrl(content.metadata.image || '/images/hero.webp'), width: 1200, height: 630 }]
+      images: [
+        {
+          url: absoluteUrl(content.metadata.image || site.image),
+          width: 1200,
+          height: 630,
+          alt: 'Paint and Seek Wiki codes, maps and camouflage guide'
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title: content.metadata.title,
       description: content.metadata.description,
-      images: [absoluteUrl(content.metadata.image || '/images/hero.webp')]
+      images: [absoluteUrl(content.metadata.image || site.image)]
     }
   };
 }
@@ -106,14 +126,14 @@ export default async function SlugPage({ params }: RouteProps) {
     '@type': 'Article',
     headline: content.metadata.title,
     description: content.metadata.description,
-    image: absoluteUrl(content.metadata.image || '/images/hero.webp'),
+    image: absoluteUrl(content.metadata.image || site.image),
     datePublished: content.metadata.date,
     dateModified: content.metadata.lastModified || content.metadata.date,
     author: { '@type': 'Organization', name: site.name },
     publisher: {
       '@type': 'Organization',
       name: site.name,
-      logo: { '@type': 'ImageObject', url: absoluteUrl('/android-chrome-512x512.png') }
+      logo: { '@type': 'ImageObject', url: absoluteUrl('/icon.png') }
     },
     mainEntityOfPage: articleUrl
   };

@@ -18,8 +18,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      url: localePath(locale, '/'),
-      images: [{ url: absoluteUrl('/images/hero.webp'), width: 1200, height: 630 }]
+      url: absoluteUrl(localePath(locale, '/')),
+      images: [
+        {
+          url: absoluteUrl(site.image),
+          width: 1200,
+          height: 630,
+          alt: 'Paint and Seek Wiki codes, maps and camouflage guide'
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [absoluteUrl(site.image)]
     }
   };
 }
@@ -32,7 +43,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     name: site.name,
     url: absoluteUrl(localePath(locale, '/')),
     description: site.description,
-    image: absoluteUrl('/images/hero.webp')
+    image: absoluteUrl(site.image)
   };
 
   return (

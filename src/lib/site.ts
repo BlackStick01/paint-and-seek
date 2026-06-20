@@ -5,7 +5,7 @@ export const site = {
   url: SITE_URL,
   description:
     'Master Paint and Seek on Roblox with active codes, camouflage tips, hider and seeker strategies, map routes, perks, controls, updates, and beginner guides.',
-  image: '/images/hero.webp',
+  image: '/images/og-image.png',
   robloxUrl: 'https://www.roblox.com/'
 };
 
