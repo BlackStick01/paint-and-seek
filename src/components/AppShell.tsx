@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowUp, ChevronDown, ExternalLink, Globe2, Play } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import { SiteAds } from '@/components/ads/SiteAds';
 import { NAVIGATION_CONFIG, localizeHref } from '@/config/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -180,6 +181,8 @@ export function AppShell({ children }: AppShellProps) {
           </div>
         </nav>
       </header>
+
+      <SiteAds />
 
       <main className="site-main">{children}</main>
 

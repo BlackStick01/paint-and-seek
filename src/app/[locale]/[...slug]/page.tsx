@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CalendarDays, CheckCircle2, Home, PlayCircle } from 'lucide-react';
+import { InlineRectangleAd } from '@/components/ads/InlineRectangleAd';
+import { ResponsiveLeaderboardAd } from '@/components/ads/ResponsiveLeaderboardAd';
 import { CodeRewardsPanel } from '@/components/CodeRewardsPanel';
 import { JsonLd } from '@/components/JsonLd';
 import { CONTENT_TYPES, NAVIGATION_CONFIG, localizeHref, normalizeContentType } from '@/config/navigation';
@@ -172,6 +174,8 @@ export default async function SlugPage({ params }: RouteProps) {
           </div>
         </header>
 
+        <ResponsiveLeaderboardAd />
+
         <div className="article-content-layout">
           <div className="article-content">
             <section className="quick-guide">
@@ -183,6 +187,7 @@ export default async function SlugPage({ params }: RouteProps) {
               </ol>
             </section>
             {contentType === 'codes' ? <CodeRewardsPanel /> : null}
+            <InlineRectangleAd />
             <div className="article-panel" id="main-content">
               <MDXContent />
             </div>

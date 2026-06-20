@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, Play, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { ResponsiveLeaderboardAd } from '@/components/ads/ResponsiveLeaderboardAd';
 import { CodeCopyButton } from '@/components/CodeCopyButton';
 import { HOME_ROUTE_CARDS, STARTING_POINTS, localizeHref } from '@/config/navigation';
 
@@ -153,6 +154,8 @@ export function HomePageClient() {
                 </Link>
               </div>
             </section>
+
+            <ResponsiveLeaderboardAd />
 
             <section className="home-intro-grid">
               <div className="home-panel home-updates-panel">
