@@ -1,5 +1,31 @@
 {
   "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/ads/banner-320x50.html",
+      "destination": "/ads/banner-320x50"
+    },
+    {
+      "source": "/ads/banner-728x90.html",
+      "destination": "/ads/banner-728x90"
+    },
+    {
+      "source": "/ads/banner-468x60.html",
+      "destination": "/ads/banner-468x60"
+    },
+    {
+      "source": "/ads/rectangle-300x250.html",
+      "destination": "/ads/rectangle-300x250"
+    },
+    {
+      "source": "/ads/side-160x300.html",
+      "destination": "/ads/side-160x300"
+    },
+    {
+      "source": "/ads/side-160x600.html",
+      "destination": "/ads/side-160x600"
+    }
+  ],
   "redirects": [
     {
       "source": "/:path*",
