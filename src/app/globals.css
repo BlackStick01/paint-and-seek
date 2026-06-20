@@ -1446,6 +1446,23 @@ textarea {
   gap: 8px;
 }
 
+.sidebar-code-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 191, 47, 0.36);
+  border-radius: 8px;
+  background: rgba(255, 231, 182, 0.76);
+}
+
+.sidebar-code-card > span {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
 .wiki-navigation-list a {
   display: flex;
   min-height: 38px;
@@ -1476,10 +1493,46 @@ textarea {
   font-size: 0.95rem;
 }
 
+.code-grid em,
 .code-grid span {
   color: var(--muted);
   font-size: 0.78rem;
+  font-style: normal;
   font-weight: 850;
+}
+
+.sidebar-code-copy,
+.code-copy-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 11px;
+  border: 1px solid rgba(112, 80, 170, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.88);
+  color: var(--violet-strong);
+  font-size: 0.78rem;
+  font-weight: 950;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.sidebar-code-copy:hover,
+.sidebar-code-copy:focus-visible,
+.code-copy-button:hover,
+.code-copy-button:focus-visible {
+  border-color: rgba(47, 198, 244, 0.52);
+  background: rgba(47, 198, 244, 0.12);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.sidebar-code-copy svg,
+.code-copy-button svg {
+  width: 15px;
+  height: 15px;
 }
 
 .home-sidebar-media {
@@ -1659,6 +1712,104 @@ html.video-modal-open body {
 
 .article-panel {
   padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.code-rewards-panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(112, 80, 170, 0.22);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(255, 231, 182, 0.42));
+  box-shadow: 0 18px 46px rgba(43, 26, 74, 0.12), inset 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.code-rewards-header {
+  display: grid;
+  gap: 8px;
+}
+
+.code-rewards-header h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 950;
+}
+
+.code-rewards-header p:not(.home-template-kicker) {
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.code-reward-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.code-reward-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 112px;
+  padding: 16px;
+  border: 1px solid rgba(255, 191, 47, 0.38);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.86);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.code-reward-card > div {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.code-reward-label {
+  color: #9f5c00;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.code-reward-card strong {
+  overflow-wrap: anywhere;
+  color: var(--violet-strong);
+  font-family: Cascadia Code, SFMono-Regular, Consolas, monospace;
+  font-size: 1.18rem;
+}
+
+.code-reward-card p,
+.code-help-grid p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.code-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.code-help-grid article {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid rgba(112, 80, 170, 0.16);
+  border-radius: 8px;
+  background: rgba(242, 235, 255, 0.36);
+}
+
+.code-help-grid svg {
+  width: 21px;
+  height: 21px;
+  color: var(--violet-strong);
+}
+
+.code-help-grid strong {
+  color: var(--text);
+  font-size: 0.98rem;
 }
 
 .quick-guide {
@@ -2070,7 +2221,13 @@ code {
   .guide-priority-strip,
   .home-intro-grid,
   .home-what-section,
-  .article-grid {
+  .article-grid,
+  .code-reward-grid,
+  .code-help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .code-reward-card {
     grid-template-columns: 1fr;
   }
 
@@ -2153,7 +2310,8 @@ code {
     padding: 34px 0 64px;
   }
 
-  .button {
+  .button,
+  .code-copy-button {
     width: 100%;
   }
 }

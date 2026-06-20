@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CalendarDays, CheckCircle2, Home, PlayCircle } from 'lucide-react';
+import { CodeRewardsPanel } from '@/components/CodeRewardsPanel';
 import { JsonLd } from '@/components/JsonLd';
 import { CONTENT_TYPES, NAVIGATION_CONFIG, localizeHref, normalizeContentType } from '@/config/navigation';
 import { routing } from '@/i18n/routing';
@@ -161,6 +162,7 @@ export default async function SlugPage({ params }: RouteProps) {
                 <li>Return to the related pages when the next failure mode becomes obvious.</li>
               </ol>
             </section>
+            {contentType === 'codes' ? <CodeRewardsPanel /> : null}
             <div className="article-panel" id="main-content">
               <MDXContent />
             </div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, Play, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { CodeCopyButton } from '@/components/CodeCopyButton';
 import { HOME_ROUTE_CARDS, STARTING_POINTS, localizeHref } from '@/config/navigation';
 
 type SnapshotItem = {
@@ -399,9 +400,12 @@ export function HomePageClient() {
               <h2>{t('shared.activeCodes')}</h2>
               <div className="code-grid">
                 {codes.map((item) => (
-                  <div key={item.code}>
-                    <strong>{item.code}</strong>
-                    <span>{item.reward}</span>
+                  <div key={item.code} className="sidebar-code-card">
+                    <span>
+                      <strong>{item.code}</strong>
+                      <em>{item.reward}</em>
+                    </span>
+                    <CodeCopyButton code={item.code} className="sidebar-code-copy" />
                   </div>
                 ))}
               </div>
