@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.paint-and-seek-wiki.wiki"
+        }
+      ],
+      "destination": "https://paint-and-seek-wiki.wiki/:path*",
+      "permanent": true
+    }
+  ]
+}

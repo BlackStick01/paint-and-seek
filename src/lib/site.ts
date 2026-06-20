@@ -1,6 +1,8 @@
+export const SITE_URL = 'https://paint-and-seek-wiki.wiki';
+
 export const site = {
   name: 'Paint and Seek Wiki',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://paint-and-seek-wiki.wiki',
+  url: SITE_URL,
   description:
     'Master Paint and Seek on Roblox with active codes, camouflage tips, hider and seeker strategies, map routes, perks, controls, updates, and beginner guides.',
   image: '/images/hero.webp',
