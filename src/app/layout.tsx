@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   icons: {
     icon: [
+      { url: '/google-favicon.png', type: 'image/png', sizes: '48x48' },
       { url: '/favicon.ico' },
       { url: '/icon.png', type: 'image/png', sizes: '512x512' }
     ],
