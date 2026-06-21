@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     twitter: {
       card: 'summary_large_image',
       images: [absoluteUrl(site.image)]
+    },
+    other: {
+      thumbnail: absoluteUrl(site.image)
     }
   };
 }
@@ -45,10 +48,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     description: site.description,
     image: absoluteUrl(site.image)
   };
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: translate(locale, 'home.meta.title'),
+    url: absoluteUrl(localePath(locale, '/')),
+    description: translate(locale, 'home.meta.description'),
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: absoluteUrl(site.image),
+      width: 1200,
+      height: 630
+    },
+    thumbnailUrl: absoluteUrl(site.image)
+  };
 
   return (
     <>
-      <JsonLd data={website} />
+      <JsonLd data={[website, webPage]} />
       <HomePageClient />
     </>
   );
